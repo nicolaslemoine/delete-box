@@ -1,0 +1,28 @@
+.delete-box {
+  background-color: darkgrey;
+  text-align: center;
+}
+
+.delete-box a {
+  display: inline-block;
+  width: 60px;
+  margin: 0 5px;
+  text-align: center;
+  color: white;
+}
+
+.delete-box .delete-yes {
+  background-color: green;
+}
+
+.delete-box .delete-yes:hover {
+  background-color: darkgreen;
+}
+
+.delete-box .delete-no {
+  background-color: red;
+}
+
+.delete-box .delete-no:hover {
+  background-color: darkred;
+}
