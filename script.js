@@ -1,27 +1,24 @@
 // jQuery
 $(document).ready(function(){
 
-	// Confirm delete
-    var $deleteAction = $('.delete-action');
-    $deleteAction.click(function() {
-        //Get the path of the href
-        var itemLink = $deleteAction.attr('href');
-
-        //Select the <tr> and get the height
-        var itemTr = $deleteAction.closest('tr');
+    // Confirm delete
+    $('.delete-action').click(function() {
+        //Select the <tr> and get height and value
+        var itemTr = $(this).closest('tr');
         var itemTrHeight = itemTr.outerHeight();
         var itemTrValue = itemTr.html();
 
+
         //Display the confirm box in the <tr>
-        itemTr.empty();
-        itemTr.append('<td colspan="3" height="'+itemTrHeight+'" class="delete-box">\
-        	Are you sure you want to delete this entry? <a href="'+item_link+'" class="delete-yes">Yes</a><a class="delete-no">No</a>\
+        itemTr.empty().append('<td colspan="3" height="'+itemTrHeight+'" class="delete-box">\
+            Êtes-vous sûr de vouloir supprimer cet élément ? <a class="delete-yes">Oui</a><a class="delete-no">Non</a>\
         </td>');
 
         //Proceed with delete
         $('.delete-yes').click(function() {
-        	itemTr.remove();
-            return false;
+            itemTr.remove();
+
+            return true;
         });
 
         //Do not delete, remove the box
