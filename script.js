@@ -2,7 +2,8 @@
 $(document).ready(function(){
 
     // Confirm delete
-    $('.delete-action').click(function() {
+
+    var deleteAction = function() {
         //Select the <tr> and get height and value
         var itemTr = $(this).closest('tr');
         var itemTrHeight = itemTr.outerHeight();
@@ -24,10 +25,13 @@ $(document).ready(function(){
         //Do not delete, remove the box
         $('.delete-no').click(function() {
             itemTr.empty().append(itemTrValue);
+            itemTr.find('.delete-action').click(deleteAction);
 
             return false;
         });
 
         return false;
-    });
+    }
+
+    $('.delete-action').click(deleteAction);
 });
